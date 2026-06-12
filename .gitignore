@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Streamlit and local caches
+.streamlit/
+nb_assets/
+.ipynb_checkpoints/
+
+# Giant Netflix Dataset files (to prevent GitHub push failures)
+*.zip
+*.txt
+*.csv
+netflix_prize_data/
+data/
