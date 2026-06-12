@@ -9,18 +9,26 @@ Recommendation systems directly influence content discovery, user engagement, an
 
 ## Repository Structure
 ```text
-netflix_recommendation_system/
-├── requirements.txt         # Project package dependencies
-├── data_loader.py          # Data ingestion, parsing, and dense sampling
-├── eda.py                  # Exploratory Data Analysis & plot generation
-├── models.py               # Recommender models (Funk SVD and Item-Based CF)
-├── evaluate.py             # Evaluation metrics (RMSE, MAE, MAP@10)
-├── recommend.py            # Recommendations, similarities, and explanations
-├── main.py                 # Pipeline orchestrator (runs data -> training -> evaluation)
-├── app.py                  # Streamlit dashboard application
-├── netflix_recommendation_system.ipynb # Jupyter Notebook demonstrating the pipeline
-├── technical_report.md     # Detailed markdown technical report
-└── presentation.md         # 8-slide presentation markdown format
+netflix_recommendation_system_submission/
+├── src/                    # Core Python Modules (Data, Model, Evaluation)
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── eda.py
+│   ├── models.py
+│   ├── evaluate.py
+│   └── recommend.py
+├── notebooks/              # Jupyter Notebooks
+│   └── netflix_recommendation_system.ipynb
+├── docs/                   # Written Reports & Presentations
+│   ├── technical_report.md
+│   └── presentation.md
+├── assets/                 # Pre-computed plots and metrics
+│   └── ...
+├── app.py                  # Streamlit dashboard app (kept at root for easy running)
+├── main.py                 # Pipeline CLI runner (kept at root for easy running)
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ---
