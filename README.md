@@ -110,6 +110,4 @@ streamlit run app.py
 ---
 
 ## References
-*   **Netflix Prize Papers**: Koren, Y., Bell, R., & Volinsky, C. (2009). *Matrix Factorization Techniques for Recommender Systems*. IEEE Computer.
-*   **Collaborative Filtering**: Sarwar, B., et al. (2001). *Item-Based Collaborative Filtering Recommendation Algorithms*. WWW.
 *   **Dataset Source**: [Kaggle Netflix Prize Dataset](https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data)
