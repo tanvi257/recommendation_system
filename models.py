@@ -115,7 +115,8 @@ class FunkSVD:
         dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
         
         self.model = FunkSVDNet(num_users, num_items, self.latent_dim, self.global_mean).to(self.device)
-        optimizer = optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=self.reg)
+        # Disable weight_decay in Adam optimizer to prevent embedding parameters from decaying to zero
+        optimizer = optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=0.0)
         criterion = nn.MSELoss()
         
         self.model.train()
@@ -126,11 +127,21 @@ class FunkSVD:
                 
                 optimizer.zero_grad()
                 pred = self.model(u, i)
-                loss = criterion(pred, r)
+                mse_loss = criterion(pred, r)
+                
+                # Manual L2 regularization for active embeddings in batch
+                user_f = self.model.user_factors(u)
+                item_f = self.model.item_factors(i)
+                user_b = self.model.user_biases(u)
+                item_b = self.model.item_biases(i)
+                
+                l2_reg = torch.sum(user_f ** 2) + torch.sum(item_f ** 2) + torch.sum(user_b ** 2) + torch.sum(item_b ** 2)
+                loss = mse_loss + (self.reg / len(r)) * l2_reg
+                
                 loss.backward()
                 optimizer.step()
                 
-                total_loss += loss.item() * len(r)
+                total_loss += mse_loss.item() * len(r)
                 
             epoch_loss = total_loss / len(dataset)
             print(f"  Epoch {epoch+1}/{self.epochs} - Loss: {epoch_loss:.4f}")
