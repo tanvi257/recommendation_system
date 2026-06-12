@@ -117,10 +117,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Imports from project files
-from data_loader import load_sampled_data, load_movie_titles, train_test_split_chronological
-from models import FunkSVD, ItemBasedCF
-from evaluate import evaluate_predictions
-from recommend import generate_top_k_recommendations, get_similar_movies_svd
+from src.data_loader import load_sampled_data, load_movie_titles, train_test_split_chronological
+from src.models import FunkSVD, ItemBasedCF
+from src.evaluate import evaluate_predictions
+from src.recommend import generate_top_k_recommendations, get_similar_movies_svd
 
 DATA_DIR = r"C:\Users\TANVI\Downloads\netflix_prize_data"
 
