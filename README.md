@@ -2,12 +2,12 @@
 
 A machine learning-powered movie recommendation system trained on the Netflix Prize Dataset. It compares Funk SVD (Matrix Factorization) against Item-Based Collaborative Filtering, implements an explainability layer, and features an interactive Streamlit dashboard.
 
-## 📌 Problem Overview
+## Problem Overview
 Recommendation systems directly influence content discovery, user engagement, and retention on streaming platforms. This project utilizes the **Netflix Prize Dataset** to model user preferences, predict unseen movie ratings, and generate Top-K recommendations. The performance is measured on rating prediction accuracy (RMSE) and ranking quality (MAP@10) using a chronological train-test split.
 
 ---
 
-## 🛠️ Repository Structure
+## Repository Structure
 ```text
 netflix_recommendation_system/
 ├── requirements.txt         # Project package dependencies
@@ -25,7 +25,7 @@ netflix_recommendation_system/
 
 ---
 
-## 🔬 Approach & Methodology
+## Approach & Methodology
 
 ### 1. Funk SVD (Matrix Factorization)
 Projects users and movies into a shared $K$-dimensional latent space. Rating prediction is modeled as:
@@ -43,7 +43,7 @@ For any recommended movie, the system queries the user's highly-rated movies in 
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 1.  **Clone the Repository / Open Folder**:
     Navigate to the project folder:
@@ -66,7 +66,7 @@ For any recommended movie, the system queries the user's highly-rated movies in 
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Run the Command Line Pipeline
 To run the complete pipeline (Data Loading -> EDA -> Model Training -> Evaluation -> Recommendation):
@@ -96,7 +96,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Evaluation Results (Representative Sub-Sample)
+## Evaluation Results (Representative Sub-Sample)
 
 | Metric | Funk SVD (Matrix Factorization) | Item-Based CF (Neighborhood) |
 | :--- | :---: | :---: |
@@ -109,7 +109,7 @@ streamlit run app.py
 
 ---
 
-## 📚 References
+## References
 *   **Netflix Prize Papers**: Koren, Y., Bell, R., & Volinsky, C. (2009). *Matrix Factorization Techniques for Recommender Systems*. IEEE Computer.
 *   **Collaborative Filtering**: Sarwar, B., et al. (2001). *Item-Based Collaborative Filtering Recommendation Algorithms*. WWW.
 *   **Dataset Source**: [Kaggle Netflix Prize Dataset](https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data)
